@@ -6,7 +6,9 @@ Our code is writen based on python 3.6,tensorflow 1.14.0, and keras 2.3.1.  We s
 
 # Description
 Training：To train and evaluate the our proposed multi-focus network.
+
 SurvmodelTMI2.py: The architecture of our proposed multi-focus network.
+
 The directory of Methods contains the existing methods which are used for comparison.
 
 # Acknowledgements
