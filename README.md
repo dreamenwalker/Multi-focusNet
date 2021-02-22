@@ -22,4 +22,4 @@ We also thanks the work published in the paper named "Feature pyramid networks f
 If our code is helpful for you, please contact me.
 
 # Contact
-Please contact zhangliwen2018@ia.ac.cn if you have some questions.
+Please contact zhangliwen2018@ia.ac.cn if you have any questions.
