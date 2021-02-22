@@ -147,8 +147,6 @@ def resnet_self(input_tensor = None, include_top=True,num_outputs=1,
     else:
         C5 = None
     # _, C2, C3, C4, C5 = resnet_graph(input_image=None, architecture="resnet50",stage5=True, train_bn=True)
-# Top-down Layers 构建自上而下的网络结构
-# 从 C5开始处理，先卷积来转换特征图尺寸
 
     P5 = KL.Conv2D(256, (1, 1), name='fpn_c5p5',kernel_regularizer=L12_reg)(C5)  # 256
     P4 = KL.Add(name="fpn_p5addc4")([
@@ -173,9 +171,9 @@ def resnet_self(input_tensor = None, include_top=True,num_outputs=1,
     x = BatchNormalization(axis=3, name='bnp2')(x)
     P2 = Activation('relu')(x)
     P2 = KL.Conv2D(256, (3, 3), padding="SAME", kernel_initializer="he_normal", name="fpn_p2")(P2)
-    #原始fpn50没有p1
+
     # P1 = KL.Add(name = "fpn_p2addc1")([P2,KL.Conv2D(256, (1, 1), name='fpn_c1p1')(C1)])# change channel 64 to 256 for C1
-    # P2-P5最后又做了一次3*3的卷积，作用是消除上采样带来的混叠效应
+
     # Attach 3x3 conv to all P layers to get the final feature maps.
     # P1 = KL.Conv2D(256, (3, 3), padding="SAME",  kernel_initializer="he_normal",name="fpn_p1")(P1)
     P2 = KL.Conv2D(256, (3, 3), padding="SAME", name="fpn_p2conved")(P2)
@@ -188,7 +186,6 @@ def resnet_self(input_tensor = None, include_top=True,num_outputs=1,
     # C12_input = KL.Conv2D(256, (1, 1), name='fpn_C1toC2')(C1)
     # C12_input = Activation('relu')(C12_input)
     #c2 out 55*55*256    C1 output 56*56*64
-    #525 原始没有融合c1去掉
     '''
     C2_input = KL.Conv2D(256, (1, 1), name='fpn_C1toC2')(C1)
     C2_output = KL.Add(name="fpn_C1addC2")([C2,C2_input])
@@ -226,7 +223,6 @@ def resnet_self(input_tensor = None, include_top=True,num_outputs=1,
     '''
     gbpooling6 = KL.GlobalAveragePooling2D(dim_ordering='default', name='global_pool6')(P2)
     merge1 = KL.concatenate([gbpooling6,featureall2])#if is multi-task, replace featureall2 by stop_grad
-    #525 将下面输入merge1 改为gbpooling6
     output1 = KL.Dense(64,activation='relu', name='Dense2')(gbpooling6)
     # output1 = KL.Dropout(0.5,name = 'dropout')(output1)
     output1 = KL.Dense(num_outputs,activation='sigmoid', name='risk_pred')(output1)
