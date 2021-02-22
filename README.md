@@ -9,14 +9,17 @@ Training：To train and evaluate the our proposed multi-focus network.
 
 SurvmodelTMI2.py: The architecture of our proposed multi-focus network.
 
+SurvmodelTMI_FPN18ori.py：The architecture of network based on the feature pyramid network and ResNet-18. More details will be found when our work is published.
+
+SurvmodelTMI_FPN50ori.py The architecture of network based on the feature pyramid network and ResNet-50.
+
 The directory of Methods contains the existing methods which are used for comparison.
 
 # Acknowledgements
-We thanks to the authors for the published good work, in which the CheXNet(https://arxiv.org/pdf/1711.05225.pdf) is proposed. Our source codes with respect to the data augmentation and train evaluation are inspired by the CheXNet.
-
+We thanks to the authors for the published good work, in which the CheXNet(https://arxiv.org/pdf/1711.05225.pdf) is proposed. Our source codes with respect to the data augmentation and train evaluation are inspired by the CheXNet. The ResNet-18 and ResNet-50 can be found in the paper named “Deep Residual Learning for Image Recognition”. 
+We also thanks the work published in the paper named "Feature pyramid networks for object detection".
 # Citation
 If our code is helpful for you, please contact me.
 
 # Contact
-
 Please contact zhangliwen2018@ia.ac.cn if you have some questions.
