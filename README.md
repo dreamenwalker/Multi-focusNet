@@ -5,7 +5,7 @@ This source code is used for the unpublished paper entitled “Multi-focus Netwo
 Our code is writen based on python 3.6,tensorflow 1.14.0, and keras 2.3.1.  We suggest that our code is run according to the requirements. Note that some errors may be occur during the training process using tensorflow 2.0.
 
 # Description
-Training：To train and evaluate the our proposed multi-focus network.
+Training.py：To train and evaluate the our proposed multi-focus network.
 
 SurvmodelTMI2.py: The architecture of our proposed multi-focus network.
 
