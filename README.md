@@ -17,7 +17,7 @@ The directory of Methods contains the existing methods which are used for compar
 
 # Acknowledgements
 We are grateful to the authors for the published good work, in which the CheXNet(https://arxiv.org/pdf/1711.05225.pdf) is proposed. Our source codes with respect to the data augmentation and train evaluation are inspired by the CheXNet. The ResNet-18 and ResNet-50 can be found in the paper named “Deep Residual Learning for Image Recognition”. 
-We also thanks the work published in the paper named "Feature pyramid networks for object detection".
+We also thank the work published in the paper named "Feature pyramid networks for object detection".
 # Citation
 If our code is helpful for you, please contact me.
 
